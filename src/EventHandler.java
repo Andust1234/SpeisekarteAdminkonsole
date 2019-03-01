@@ -18,9 +18,9 @@ public class EventHandler implements Interface {
 				    if (isPasswordCorrect(input)) {
 				    	System.out.println("Success! You typed the right password.");
 				    	
+				    	f_werte.setVisible(true);
+				    	
 				    	l_test.setVisible(false);
-						l_reihe.setVisible(true);
-						l_spalte.setVisible(true);
 						l_login.setVisible(false);
 						l_pw.setVisible(false);
 						l_db.setVisible(true);
@@ -30,10 +30,6 @@ public class EventHandler implements Interface {
 						b_db_export.setVisible(true);
 						b_db_hinzufuegen.setVisible(true);
 						b_db_loeschen.setVisible(true);
-						cb_db.setVisible(true);
-						cb_food.setVisible(true);
-						ep_reihe.setVisible(true);
-						ep_spalte.setVisible(true);
 						ep_login.setVisible(false);
 						pf_login.setVisible(false);
 						
@@ -60,7 +56,6 @@ public class EventHandler implements Interface {
 		
 		b_addGericht.addActionListener(new ActionListener() {
 	         public void actionPerformed(ActionEvent e) {
-	        	 cb_food.setSelectedItem("Bacon");
 	        	 System.out.println(cb_food.getSelectedItem());
 	        	 if (cb_food.getSelectedItem() != null) {
 		        	 String new_gericht = cb_food.getSelectedItem().toString();		
@@ -90,7 +85,7 @@ public class EventHandler implements Interface {
 		        		 }
 		     		 }
 		        	 System.out.print(show_list);
-		     		 Interface.CreateLabel(l_gerichte, show_list, 700, 500);
+		     		 Interface.CreateLabel(f_start, l_gerichte, show_list, 700, 500);
 		     		 l_gerichte.setVisible(true);
 	        	 }
 	         } 
@@ -109,7 +104,28 @@ public class EventHandler implements Interface {
 		});
 		b_db_loeschen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				test_db.Daten_löschen(test_db.food, Integer.valueOf(ep_reihe.getText()).intValue(), Integer.valueOf(ep_spalte.getText()).intValue());
+				String data[][] = new String[0][0];
+				System.out.println(cb_db.getSelectedItem());
+				if (cb_db.getSelectedItem() != null) {
+					System.out.println(cb_db.getSelectedItem());
+					String db = cb_db.getSelectedItem().toString();
+					switch (db) {
+					case "food":
+						data = test_db.food;
+						
+					case "drink":
+						data = test_db.drink;
+						
+					case "order":
+						data = test_db.order;
+						
+					}
+						
+					test_db.Daten_löschen(data, Integer.valueOf(ep_reihe.getText()).intValue(), Integer.valueOf(ep_spalte.getText()).intValue());
+				}
+				else {
+					System.out.println("GEHT NICH");
+				}
 			}
 		});
 	}
