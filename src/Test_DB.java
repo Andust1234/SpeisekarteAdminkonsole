@@ -1,7 +1,8 @@
 import java.io.BufferedWriter; 
 import java.io.FileWriter; 
 import java.io.IOException; 
-import java.io.PrintWriter; 
+import java.io.PrintWriter;
+import java.util.ArrayList; 
 
 public class Test_DB {
 	String dbs[] = new String[3];
@@ -77,6 +78,20 @@ public class Test_DB {
                 pWriter.close(); 
             } 
         } 
+	}
+	
+	public String[][] List2Array(ArrayList<String> list) {
+		String array[][] = new String[1][list.size()];
+		for (int i = 0; i < list.size(); i++) {
+			if (i == 0) {
+				array[0][i] = "name";
+			}
+			else {
+				array[0][i] = (String) list.get(i);
+			}
+		}
+		
+		return array;
 	}
 	
 	public void DB_import() {

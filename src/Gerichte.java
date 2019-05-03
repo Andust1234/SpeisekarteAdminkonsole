@@ -15,15 +15,32 @@ public class Gerichte implements Interface {
 		}
 	}
 	
-	public ArrayList getList() {
-		return food;
+	public ArrayList<String> getList(String db) {
+		switch (db) {
+		case "food":
+			return food;
+		case "drink":
+			return drink;
+		case "service":
+			return service;
+		default:
+			return food;
+		}
 	}
 	
-	public void addGericht(ArrayList list, String new_gericht) {
+	public String[] getListMenue() {
+		String listMenue[] = new String[3];
+		listMenue[0] = "Öffentliche Menüs";
+		listMenue[1] = "Zwischengespeichert";
+		listMenue[2] = "Saisonelles Menü";
+		return listMenue;
+	}
+	
+	public void addGericht(ArrayList<String> list, String new_gericht) {
 		list.add(new_gericht);
 	}
 	
-	public void changeItem(ArrayList list, String alt_gericht, String new_gericht) {
+	public void changeItem(ArrayList<String> list, String alt_gericht, String new_gericht) {
 		for ( int i = 0; i < list.size(); i++) {
 			String gericht = list.get(i).toString();
 			if (gericht == alt_gericht) {
@@ -32,7 +49,7 @@ public class Gerichte implements Interface {
 		}
 	}
 	
-	public void setPrice(ArrayList list, int price) {
+	public void setPrice(ArrayList<String> list, int price) {
 		
 	}
 	
