@@ -1,12 +1,7 @@
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagLayout;
-import java.awt.image.BufferedImage;
-import java.io.File;
-
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 
@@ -36,7 +31,6 @@ public interface Interface {
 	JLabel l_waehrung = new JLabel();
 	JLabel l_auswahl = new JLabel();
 	
-	JScrollPane sp_side_left = new JScrollPane();
 	JButton b_login = new JButton(); 
 	JButton b_verlassen = new JButton();
 	JButton b_addGericht = new JButton();
@@ -132,6 +126,7 @@ public interface Interface {
 	public static void LoadComponentsHaupt() {
 		//***Hauptmenue***\\
 		CreateFrame(f_hauptmenue, "Startmenü", 1000, 800);
+		f_hauptmenue.setDefaultCloseOperation(f_hauptmenue.EXIT_ON_CLOSE);
 		f_hauptmenue.setVisible(false);
 		CreateButton(f_hauptmenue, b_addGericht, "Gericht hinzufügen", 320, 400, 150, 25);
 		//CreateButton(f_hauptmenue, b_showGericht, "Gerichte zeigen", 600, 200, 150, 25);
@@ -140,13 +135,10 @@ public interface Interface {
 		CreateLabel(f_hauptmenue, l_headline, "Peter Meyer Gastro", 450, 50);
 		l_headline.setFont(new Font("Arial", 2, 25));
 		CreateComboBox(f_hauptmenue, cb_menue, gerichte.getListMenue(), 0, 0, 200, 25);
-		CreateScrollPane(f_hauptmenue, sp_side_left, 0, 25, 200, 1000);
-		//CreateScrollPane(f_hauptmenue, sp_side_left, 0, 25, 200, 740);
-		//sp_side_left.add(new JLabel("ein viel zu langer text um ihn so anzuzeigen"));
 		GerichtList gerichtlist = new GerichtList();
-		Component c_gerichtlist = gerichtlist.CreateGerichtList();
-		sp_side_left.add(c_gerichtlist);
-		sp_side_left.setComponentZOrder(c_gerichtlist, 0);
+		f_hauptmenue.add(gerichtlist.getGerichtList());
+		
+		
 		
 		//*****************\\
 	}
@@ -208,13 +200,14 @@ public interface Interface {
 	}
 	
 	public static void CreatePanel(JFrame frame, JPanel panel, int x, int y, int width, int height) {
-		JScrollPane scrollpane= new JScrollPane();
+		/*JScrollPane scrollpane= new JScrollPane();
 		scrollpane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		scrollpane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
 		scrollpane.setPreferredSize(new Dimension(width, height));
 		scrollpane.setSize(width, height);
 		scrollpane.setVisible(true);
 		panel.add(scrollpane);
+		*/
 		panel.setBounds(x, y, width, height);
 		panel.setLayout(new GridBagLayout());
 		panel.setBorder(LineBorder.createBlackLineBorder());
@@ -231,7 +224,7 @@ public interface Interface {
 	
 	
 	public static void CreateScrollPane(JFrame panel, JScrollPane scrollpane, int x, int y, int width, int height) {
-		scrollpane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+		scrollpane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		scrollpane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollpane.setBounds(x, y, width, height);
 		panel.add(scrollpane);

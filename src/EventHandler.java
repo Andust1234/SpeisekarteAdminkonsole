@@ -4,8 +4,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.EventListener;
-import java.util.EventObject;
 
 public class EventHandler implements Interface {
 	
