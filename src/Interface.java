@@ -138,8 +138,6 @@ public interface Interface {
 		GerichtList gerichtlist = new GerichtList();
 		f_hauptmenue.add(gerichtlist.getGerichtList());
 		
-		
-		
 		//*****************\\
 	}
 	

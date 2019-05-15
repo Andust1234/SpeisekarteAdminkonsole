@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"  prefHeight="256.0" prefWidth="352.0" VBox.vgrow="ALWAYS"
+            fx:controller="controller.LoginController">
+    <children>
+        <Label alignment="CENTER" layoutX="61.0" layoutY="14.0" text="Peter Mayer Login">
+            <font>
+                <Font name="Arial" size="28.0"/>
+            </font>
+        </Label>
+        <TextField fx:id="username" layoutX="135.0" layoutY="72.0"/>
+        <TextField fx:id="password" layoutX="135.0" layoutY="117.0"/>
+        <Label layoutX="53.0" layoutY="77.0" prefHeight="17.0" prefWidth="69.0" text="Username"/>
+        <Label layoutX="59.0" layoutY="122.0" text="Passwort"/>
+        <Button fx:id="btnLogin" layoutX="149.0" layoutY="177.0" mnemonicParsing="false" text="Login"/>
+    </children>
+</AnchorPane>
