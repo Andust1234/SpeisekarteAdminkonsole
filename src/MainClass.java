@@ -8,7 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import mock.MockGenerator;
-import sun.applet.Main;
+//import sun.applet.Main;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -30,7 +30,8 @@ public class MainClass extends Application {
 
     private void showAdminMenu() {
 
-        FXMLLoader loader = new FXMLLoader(Main.class.getResource("/layout/AdminScreen.fxml"));
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/layout/AdminScreen.fxml"));
         AnchorPane pane = null;
 
         try {
@@ -54,7 +55,8 @@ public class MainClass extends Application {
 
     private void showLogin() {
 
-        FXMLLoader loader = new FXMLLoader(Main.class.getResource("/layout/Login.fxml"));
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/layout/Login.fxml"));
         AnchorPane pane = null;
 
         try {
