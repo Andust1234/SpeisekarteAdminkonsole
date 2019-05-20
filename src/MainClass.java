@@ -21,6 +21,7 @@ public class MainClass extends Application {
 
     private DishWrapper dishes;
 
+    //opens Start Screen
     @Override
     public void start(Stage stage) {
         dishes = new DishWrapper(MockGenerator.generateDishes(20));
@@ -28,6 +29,7 @@ public class MainClass extends Application {
         showLogin();
     }
 
+    //inflates Main Screen
     private void showAdminMenu() {
 
         FXMLLoader loader = new FXMLLoader();

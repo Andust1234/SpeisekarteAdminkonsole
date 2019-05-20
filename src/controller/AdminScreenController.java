@@ -175,6 +175,7 @@ public class AdminScreenController {
         });
     }
 
+    // checks which item is selected
     private void handleClick(int selectedIndex) {
         Dish selected = dishWrapper.getDishes().get(selectedIndex);
         title.setText(selected.getName());
